@@ -15,14 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from LiveAttendance import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', include('OnlineParking.urls')),
-    path('', views.index),
-    path('StudentLogin/', views.StudentLogin, name="StudentLogin"),
-    path('TeacherLogin/', views.TeacherLogin, name="TeacherLogin"),
-    path('StudentRegister/', views.StudentRegister, name="StudentRegister"),
-    path('TeacherRegister/', views.TeacherRegister, name="TeacherRegister"),
+    path('', include('LiveAttendance.urls')),
 ]

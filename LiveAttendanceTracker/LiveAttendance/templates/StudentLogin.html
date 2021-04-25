@@ -33,6 +33,9 @@
 
 <body style="background:url();background-repeat:no-repeat;background-size:cover"></body>
 <!-- start banner Area -->
+<h1 style="font-size:30px;color : black;">
+    {% if messages %} {% for message in messages %} {% if message.tags %} {{ message }} {% endif %} {% endfor %} {% endif %}
+</h1>
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -52,15 +55,15 @@
             </div>
 
             <div class="col-lg-5  col-md-6 header-right">
-                <h1 class="text-white pb-30">Sign In!</h1>
-                <form action="#" method="post" class="form" role="form" autocomplete="off">
+                <h1 class="text-white pb-30">Student SignIn!</h1>
+                <form action="{% url 'StudentLoginSubmit' %}" method="post" class="form" role="form" autocomplete="off">
                     {% csrf_token %}
                     <br>
 
-                    <input class="form-control txt-field" type="email" name="RegdNo" placeholder="Regd No." required>
+                    <input class="form-control txt-field" type="text" name="RegdNo" placeholder="Regd No." required>
 
                     <br>
-                    <input class="form-control txt-field" type="password" name="password" placeholder="Password" required>
+                    <input class="form-control txt-field" type="password" name="Password" placeholder="Password" required>
                     <br>
                     <br>
 
@@ -72,9 +75,9 @@
 
                 <br>
                 <br>
-                <p>Forgot your password? <a href="#">"Forgot password"</a>.</p>
+                <p>Forgot your password? <a href="{% url 'ForgotPassword' %}">"Forgot password"</a>.</p>
                 <br>
-                <p>Dont have an account? <a href="#">"Sign Up"</a>.</p>
+                <p>Dont have an account? <a href="{% url 'StudentRegister' %}">"SignUp"</a>.</p>
                 <br>
                 <h5><a href="{% url 'TeacherLogin' %}">Teacher?</a></h5>
 
