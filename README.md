@@ -1,1 +1,1 @@
-# LiveAttendanceTracker
+# OutingTracker
