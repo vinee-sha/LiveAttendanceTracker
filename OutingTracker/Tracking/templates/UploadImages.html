@@ -194,15 +194,15 @@
             <div class="banner-content col-lg-7 col-md-6 ">
                 <br>
                 <br>
-                <h3 style="color:white;">Upload CSV</h3>
+                <h3 style="color:white;">Upload Images</h3>
                 <div class="form-group row ">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9">
-                                <form method="post" action="{% url 'uploadFile'%}" enctype="multipart/form-data" id="#">
+                                <form method="post" action="{% url 'uploadFiles'%}" enctype="multipart/form-data" id="#">
                                     {% csrf_token %} {{ form.as_table }}
                                     <div class="form-group files color">
-                                        <input class="form-control" role="button" type="file" name="File_to_upload" id="id_File_to_upload" accept=".csv" value="Upload CSV">
+                                        <input class="form-control" role="button" type="file" name="Files_to_upload" id="id_File_to_upload" accept="image/*" value="Upload Images" multiple>
                                     </div>
                                     <button type="submit">Upload</button>
                                 </form>

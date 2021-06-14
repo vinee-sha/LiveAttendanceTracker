@@ -194,22 +194,14 @@
             <div class="banner-content col-lg-7 col-md-6 ">
                 <br>
                 <br>
-                <h3 style="color:white;">Upload CSV</h3>
-                <div class="form-group row ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <form method="post" action="{% url 'uploadFile'%}" enctype="multipart/form-data" id="#">
-                                    {% csrf_token %} {{ form.as_table }}
-                                    <div class="form-group files color">
-                                        <input class="form-control" role="button" type="file" name="File_to_upload" id="id_File_to_upload" accept=".csv" value="Upload CSV">
-                                    </div>
-                                    <button type="submit">Upload</button>
-                                </form>
-                            </div>
-                        </div>
+                <h3 style="color:white;">Delete Images</h3>
+                <form action="{% url 'deleteFiles' %}" method="post" class="form" role="form" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="input-group" style="border-radius:2%;width:500px;height:44px;">
+                        <input type="search" class="form-control rounded" placeholder="Enter RegdNo seperated with '',''" style="height:44px;" aria-label="Search" aria-describedby="search-addon" name="Files_to_delete">
+                        <button type="submit" style="width:84px;" class="btn btn-outline-primary">Delete</button>
                     </div>
-                </div>
+                </form>
                 <br>
                 <br>
             </div>
