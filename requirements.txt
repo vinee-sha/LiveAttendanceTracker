@@ -30,7 +30,6 @@ djongo==1.3.3
 face-recognition==1.3.0
 face-recognition-models==0.3.0
 Flask==1.1.2
-freeze
 gunicorn==20.0.4
 heroku==0.1.4
 ibm-cloud-sdk-core==1.5.1
