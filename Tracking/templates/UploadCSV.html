@@ -1,0 +1,240 @@
+<!DOCTYPE html> {% load static %}
+<html lang="zxx" class="no-js">
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>OutingTracker</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+        CSS
+        ============================================= -->
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" rel="stylesheet">
+    <style>
+        .hide {
+            display: none;
+        }
+        
+        .myDIV:hover+.hide {
+            display: block;
+            color: white;
+            opacity: 70%;
+            font-size: 10px;
+        }
+    </style>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <style>
+        .files input {
+            outline: 2px dashed #92b0b3;
+            outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            padding: 120px 0px 85px 35%;
+            text-align: center !important;
+            margin: 0;
+            width: 100% !important;
+        }
+        
+        .files input:focus {
+            outline: 2px dashed #92b0b3;
+            outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            border: 1px solid #92b0b3;
+        }
+        
+        .files {
+            position: relative
+        }
+        
+        .files:after {
+            pointer-events: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 50px;
+            right: 0;
+            height: 56px;
+            content: "";
+            background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+            display: block;
+            margin: 0 auto;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .color input {
+            background-color: #f1f1f1;
+        }
+        
+        .files:before {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            right: 0;
+            height: 57px;
+            content: " or drag it here. ";
+            display: block;
+            margin: 0 auto;
+            color: #2ea591;
+            font-weight: 600;
+            text-transform: capitalize;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="background:url('../static/images/BG.jpg');background-repeat:no-repeat;background-size:cover"></body>
+<h1 style="font-size:30px;color : black;">
+    {% if messages %} {% for message in messages %} {% if message.tags %} {{ message }} {% endif %} {% endfor %} {% endif %}
+</h1>
+<!-- start banner Area -->
+<section id="home">
+    <div class="overlay overlay-bg">
+        <br>
+
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1"><a href="{% url 'Home' %}">HOME</a></div>
+            <div class="col-md-3">
+                <form action="{% url 'regdNoSubmit' %}" method="post" class="form" role="form" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="input-group" style="border-radius:2%;width:320px;height:44px;">
+                        <input type="search" class="form-control rounded" placeholder="Search by RegdNo" style="height:44px;" aria-label="Search" aria-describedby="search-addon" name="regdNo">
+                        <button type="submit" style="width:84px;" class="btn btn-outline-primary">search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <form action="{% url 'UploadCSV' %}" method="post" class="form" role="form" autocomplete="off">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase myDIV" style="width:100px;font-size:12px;text-align:center;">Upload CSV</button>
+                    <div class="hide">Download CSV. Edit data and Upload...</div>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <button type="submit " class="btn btn-default btn-lg btn-block text-center text-uppercase myDIV" style="width:100px;font-size:12px;text-align:center;">
+                        <a style="color:black;" href="{% url 'downloadCSV' %}">Download CSV</a>
+                    </button>
+                <div class="hide">Download CSV for edit and Upload...</div>
+            </div>
+            <div class="col-md-1">
+                <form action="{% url 'UploadImages' %}" method="post" class="form" role="form" autocomplete="off">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase myDIV" style="width:100px;font-size:12px;text-align:center;">Upload Images</button>
+                    <div class="hide">Upload images with name as Regd.No...</div>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <button type="submit " class="btn btn-default btn-lg btn-block text-center text-uppercase myDIV" style="width:100px;font-size:12px;text-align:center;">
+                        <a style="color:black;" href="{% url 'deleteImages' %}">Delete Images</a>
+                    </button>
+                <div class="hide">Delete Student Image...</div>
+            </div>
+            <div class="col-md-3">
+                <form action="{% url 'dateSubmit' %}" method="post" class="form" role="form" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="input-group" style="border-radius:2%;width:300px;height:44px;">
+                        <input type="search" class="form-control rounded" placeholder="Search by Date" style="height:44px;" aria-label="Search" aria-describedby="search-addon" name="Date">
+                        <button type="submit" style="width:84px;" class="btn btn-outline-primary">search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <div class="banner-content col-lg-7 col-md-6 ">
+                <br>
+                <br>
+                <h3 style="color:white;">Upload CSV</h3>
+                <div class="form-group row ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <form method="post" action="{% url 'uploadFile'%}" enctype="multipart/form-data" id="#">
+                                    {% csrf_token %} {{ form.as_table }}
+                                    <div class="form-group files color">
+                                        <input class="form-control" role="button" type="file" name="File_to_upload" id="id_File_to_upload" accept=".csv" value="Upload CSV">
+                                    </div>
+                                    <button type="submit">Upload</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %} "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %} "></script>
+<script type="text/javascript " src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA "></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+<script src="{% static 'js/easing.min.js' %} "></script>
+<script src="{% static 'js/hoverIntent.js' %} "></script>
+<script src="{% static 'js/superfish.min.js' %} "></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %} "></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %} "></script>
+<script src="{% static 'js/owl.carousel.min.js' %} "></script>
+<script src="{% static 'js/jquery.sticky.js' %} "></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %} "></script>
+<script src="{% static 'js/waypoints.min.js' %} "></script>
+<script src="{% static 'js/jquery.counterup.min.js' %} "></script>
+<script src="{% static 'js/parallax.min.js' %} "></script>
+<script src="{% static 'js/mail-script.js' %} "></script>
+<script src="{% static 'js/main.js' %} "></script>
+</body>
+
+</html>
