@@ -26,9 +26,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'wi!0i%l81myeas0d!r51*orkw^f2qk@_ds5z7%vqu^jj7+v@e#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['outingtracker.herokuapp.com/', '127.0.0.1:8000']
 
 
 # Application definition
