@@ -1,8 +1,8 @@
 from twilio.rest import Client
 
 def sendSMS(PhoneNum, Msg) :
-    account_sid = "AC6c6be62a43ab5cb4cf9ebd94278fec75"
-    auth_token = "abf610f88bf2ff41b9c00f1fb354f221"
+    account_sid = "*************************************"
+    auth_token = "************************************"
 
     client = Client(account_sid, auth_token)
     PhoneNum = "+91" + PhoneNum
